@@ -3,7 +3,11 @@
   "version": "2.0.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@material-ui/core": "^4.8.3",
+=======
+    "@material-ui/core": "^4.6.1",
+>>>>>>> 166bb29fd090b99889a828f1017902ed388a8a25
     "@material-ui/icons": "^4.5.1",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
@@ -20,9 +24,14 @@
     "redux": "^4.0.4",
     "redux-saga": "^1.1.1",
     "redux-starter-kit": "^1.0.1",
+<<<<<<< HEAD
     "subscriptions-transport-ws": "^0.9.16",
     "typescript": "^3.7.2",
     "urql": "^1.7.0"
+=======
+    "typescript": "^3.7.2",
+    "urql": "^1.6.3"
+>>>>>>> 166bb29fd090b99889a828f1017902ed388a8a25
   },
   "scripts": {
     "start": "react-scripts start",
