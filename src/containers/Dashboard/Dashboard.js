@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 // Urql
 import { Query } from 'urql';
@@ -18,11 +18,37 @@ const useStyles = makeStyles({
 
 const Dashboard = () => {
     const classes = useStyles();
+
+    const [state, setState] = useState({
+        selectedOptions: []
+      });
+
+    const onOptionsSelect = (selectedOptions) => {
+        setState({
+            selectedOptions
+        });
+      };
+
+      const { selectedOptions } = state;
+
+      const cards = [];
+      
+      selectedOptions.map((option) => {
+          const optionName = option;
+
+          cards.push({
+            id: optionName,
+            name: optionName,
+            stats: 120.3,
+          });
+          return null;
+      })
+
     return (
         <Fragment>
             <div className={classes.rootContainer}>
-                <Options/>
-                <Cards/>
+                <Options onStateChange={onOptionsSelect}/>
+                <Cards cardsData={cards}/>
             </div>
         </Fragment>
     )

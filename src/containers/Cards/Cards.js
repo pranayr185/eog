@@ -22,41 +22,10 @@ const useStyles = makeStyles({
   });
 
 
-const Cards = () => {
+const Cards = (props) => {
     const classes = useStyles();
 
-    const cardsData = [ 
-        {
-            id: 1,
-            name: 'waterTemp',
-            stats: 165.24
-        },
-        {
-            id: 2,
-            name: 'injValveOpen',
-            stats: 27.24
-        },
-        {
-            id: 3,
-            name: 'oilTemp',
-            stats: 250.24
-        },
-        {
-            id: 4,
-            name: 'casingPressure',
-            stats: 261.24
-        },
-        {
-            id: 5,
-            name: 'tubingPressure',
-            stats: 1123.24
-        },
-        {
-            id: 6,
-            name: 'flareTemp',
-            stats: 161.24
-        },
-     ];
+    const {cardsData} = props;
 
     return (
         <Fragment>
@@ -64,6 +33,7 @@ const Cards = () => {
                 {
                     cardsData.map(card => {
                         const { id, name, stats } = card;
+                        console.log(card);
                         return (
                             <Card key={id} className={classes.card}>
                                 <CardContent>

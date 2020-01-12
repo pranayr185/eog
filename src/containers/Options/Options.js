@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,6 +7,8 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+
+let latestSelectedOption = '';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -39,10 +41,15 @@ const useStyles = makeStyles(theme => ({
       const Options = (props) => {
         const classes = useStyles();
         const theme = useTheme();
+        const { onStateChange } = props;
+
         const [optionName, setOptionName] = React.useState([]);
       
         const handleChange = event => {
+            let selectedOptions = [];
             setOptionName(event.target.value);
+            selectedOptions = [...event.target.value];
+            onStateChange(selectedOptions);
         };
 
     return (
@@ -61,7 +68,7 @@ const useStyles = makeStyles(theme => ({
                 >
                 {options.map(option => (
                     <MenuItem key={option} value={option}>
-                    <Checkbox checked={optionName.indexOf(option) > -1} />
+                    <Checkbox checked={optionName.indexOf(option) > -1} onChange={handleChange}  />
                     <ListItemText primary={option} />
                     </MenuItem>
                 ))}
