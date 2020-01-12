@@ -5,6 +5,7 @@ import { Query } from 'urql';
 
 // Material-Ui
 import { makeStyles } from '@material-ui/core/styles';
+import Options from '../Options/Options';
 
 const useStyles = makeStyles({
     rootContainer: {
@@ -17,7 +18,7 @@ const Dashboard = () => {
     return (
         <Fragment>
             <div className={classes.rootContainer}>
-                Dashboard container
+                <Options/>
             </div>
         </Fragment>
     )
